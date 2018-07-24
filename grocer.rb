@@ -26,11 +26,11 @@ def apply_coupons(cart, coupons)
         #if data[:count] == 0
         #  cart.delete(key)
         #end
-        new_cart.merge(cart)
+        new_cart.merge!(cart)
       end 
     end
   end
-  binding.pry
+  #binding.pry
   new_cart
 end
 
