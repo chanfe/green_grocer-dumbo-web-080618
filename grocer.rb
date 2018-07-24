@@ -22,14 +22,14 @@ def apply_coupons(cart, coupons)
         new_cart["#{key} W/COUPON"] = {:price => coupons[i][:cost], :clearance => cart[key][:clearance], :count => data[:count]/coupons[i][:num]}
         
         data[:count] %= coupons[i][:num]
-        binding.pry
+        cart.merge(new_cart)
         if data[:count] == 0
           cart.delete(key)
         end
       end 
     end
-    #binding.pry
   end
+  cart
 end
 
 def apply_clearance(cart)
