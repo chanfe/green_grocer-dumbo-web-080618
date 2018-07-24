@@ -18,9 +18,10 @@ def apply_coupons(cart, coupons)
   cart.each do |key, data|
     for i in 0..coupons.length-1
       if coupons[i][:item] == key && data[:count] >= coupons[i][:num]
-        data[:count] %= coupons[i][:num]
+        
         
         new_cart["#{key} W/COUPON"] = {:price => coupons[i][:cost], :clearance => cart[key][:clearance], :count => data[:count]/coupons[i][:num]}
+        data[:count] %= coupons[i][:num]
         binding.pry
         if data[:count] == 0
           cart.delete(key)
