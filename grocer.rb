@@ -15,6 +15,9 @@ end
 def apply_coupons(cart, coupons)
   # code here
   new_cart = {}
+  if coupons.length < 1
+    return cart
+  end
   cart.each do |key, data|
     for i in 0..coupons.length-1
       if coupons[i][:item] == key && data[:count] >= coupons[i][:num]
