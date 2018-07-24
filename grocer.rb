@@ -23,12 +23,7 @@ def apply_coupons(cart, coupons)
       if coupons[i][:item] == key && data[:count] >= coupons[i][:num]
         
         new_cart["#{key} W/COUPON"] = {:price => coupons[i][:cost], :clearance => cart[key][:clearance], :count => data[:count]/coupons[i][:num]}
-        
         data[:count] %= coupons[i][:num]
-        
-        #if data[:count] == 0
-        #  cart.delete(key)
-        #end
         new_cart.merge!(cart)
       end 
     end
